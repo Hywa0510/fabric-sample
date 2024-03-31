@@ -3,7 +3,6 @@ package chaincode
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 
 	"github.com/hyperledger/fabric-contract-api-go/contractapi"
 )
@@ -142,15 +141,4 @@ func (s *SmartContract) DeleteCreditFile(ctx contractapi.TransactionContextInter
 		return fmt.Errorf("the creditFile %s does not exist", id)
 	}
 	return ctx.GetStub().DelState(id)
-}
-
-func main() {
-	chaincode, err := contractapi.NewChaincode(&SmartContract{})
-	if err != nil {
-		log.Panicf("Error creating credit-file chaincode: %v", err)
-	}
-
-	if err := chaincode.Start(); err != nil {
-		log.Panicf("Error starting credit-file chaincode: %v", err)
-	}
 }
