@@ -68,7 +68,7 @@ func CreateCreditFile(
 	contract, conn, gw := GetContract()
 	defer conn.Close()
 	defer gw.Close()
-	submitResult, commit, err := contract.SubmitAsync("CreditFileExists", client.WithArguments(id, owner, academy, disciplinarySituation, gradePoint, awardSituation))
+	submitResult, commit, err := contract.SubmitAsync("CreateCreditFile", client.WithArguments(id, owner, academy, disciplinarySituation, gradePoint, awardSituation))
 	if err != nil {
 		return "", fmt.Errorf("failed to submit transaction asynchronously: %w", err)
 	}
@@ -117,7 +117,7 @@ func DeleteCreditFile(id string) (string, error) {
 	contract, conn, gw := GetContract()
 	defer conn.Close()
 	defer gw.Close()
-	submitResult, commit, err := contract.SubmitAsync("UpdateCreditFile", client.WithArguments(id))
+	submitResult, commit, err := contract.SubmitAsync("DeleteCreditFile", client.WithArguments(id))
 	if err != nil {
 		return "", fmt.Errorf("failed to submit transaction asynchronously: %w", err)
 	}
