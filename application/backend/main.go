@@ -8,5 +8,5 @@ func main() {
 	// 注册路由
 	r := router.SetupRouter()
 	// 启动服务
-	r.Run(":8080")
+	r.Run(":8090")
 }
