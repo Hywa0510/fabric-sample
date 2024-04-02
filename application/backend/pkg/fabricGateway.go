@@ -159,7 +159,7 @@ func GetContract() (*client.Contract, *grpc.ClientConn, *client.Gateway) {
 	// defer gw.Close()
 
 	// Override default values for chaincode and channel name as they may differ in testing contexts.
-	chaincodeName := "trace"
+	chaincodeName := "creditfile"
 	if ccname := os.Getenv("CHAINCODE_NAME"); ccname != "" {
 		chaincodeName = ccname
 	}
